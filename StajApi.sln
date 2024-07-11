@@ -3,24 +3,34 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StajApi", "StajApi\StajApi.csproj", "{12C0CD5E-388F-4705-A1CE-BA5DC0494430}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StajApi", "StajApi\StajApi.csproj", "{12C0CD5E-388F-4705-A1CE-BA5DC0494430}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StajDepper", "StajDepper\StajDepper.csproj", "{4F967BFE-D713-454A-968C-35E26E290293}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StajDepper", "StajDepper\StajDepper.csproj", "{4F967BFE-D713-454A-968C-35E26E290293}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{12C0CD5E-388F-4705-A1CE-BA5DC0494430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{12C0CD5E-388F-4705-A1CE-BA5DC0494430}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12C0CD5E-388F-4705-A1CE-BA5DC0494430}.Debug|x64.ActiveCfg = Debug|x64
+		{12C0CD5E-388F-4705-A1CE-BA5DC0494430}.Debug|x64.Build.0 = Debug|x64
 		{12C0CD5E-388F-4705-A1CE-BA5DC0494430}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12C0CD5E-388F-4705-A1CE-BA5DC0494430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12C0CD5E-388F-4705-A1CE-BA5DC0494430}.Release|x64.ActiveCfg = Release|x64
+		{12C0CD5E-388F-4705-A1CE-BA5DC0494430}.Release|x64.Build.0 = Release|x64
 		{4F967BFE-D713-454A-968C-35E26E290293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4F967BFE-D713-454A-968C-35E26E290293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F967BFE-D713-454A-968C-35E26E290293}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{4F967BFE-D713-454A-968C-35E26E290293}.Debug|x64.Build.0 = Debug|Any CPU
 		{4F967BFE-D713-454A-968C-35E26E290293}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F967BFE-D713-454A-968C-35E26E290293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F967BFE-D713-454A-968C-35E26E290293}.Release|x64.ActiveCfg = Release|Any CPU
+		{4F967BFE-D713-454A-968C-35E26E290293}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

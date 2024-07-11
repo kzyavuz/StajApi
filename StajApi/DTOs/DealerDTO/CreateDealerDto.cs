@@ -1,4 +1,4 @@
-﻿namespace StajApi.DTOs
+﻿namespace StajApi.DTOs.DealerDTO
 {
     public class CreateDealerDto
     {

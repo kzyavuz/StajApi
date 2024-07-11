@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StajApi.DTOs;
+using StajApi.DTOs.DealerDTO;
 using StajApi.Models.Repositories.DealerRepository;
 
 namespace StajApi.Controllers

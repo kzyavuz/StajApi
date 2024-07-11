@@ -1,4 +1,4 @@
-﻿using StajApi.DTOs;
+﻿using StajApi.DTOs.DealerDTO;
 
 namespace StajApi.Models.Repositories.DealerRepository
 {

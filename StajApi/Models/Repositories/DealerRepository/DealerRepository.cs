@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using StajApi.DTOs;
+using StajApi.DTOs.DealerDTO;
 using StajApi.Models.DepperContext;
 
 namespace StajApi.Models.Repositories.DealerRepository

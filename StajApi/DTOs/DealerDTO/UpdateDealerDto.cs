@@ -1,6 +1,6 @@
-﻿namespace StajApi.DTOs
+﻿namespace StajApi.DTOs.DealerDTO
 {
-    public class ResaultDealerDto
+    public class UpdateDealerDto
     {
         public int DealerID { get; set; }
         public string DealerName { get; set; }
