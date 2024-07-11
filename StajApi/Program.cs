@@ -1,17 +1,27 @@
 using StajApi.Models.DepperContext;
 using StajApi.Models.Repositories.DealerRepository;
+using StajApi.Models.Repositories.Employee;
+using StajApi.Models.Repositories.RoleRepository;
+using StajApi.Models.Repositories.UserRoleRepository;
 using StajApi.Models.Repositories.WorkRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddTransient<Context>();
+
 builder.Services.AddTransient<IDealerRepository, DealerRepository>();
 
 builder.Services.AddTransient<IWorkRepository, WorkRepository>();
 
+builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+
+builder.Services.AddTransient<IUserRoleRepository, UserRoleRepository>();
+builder.Services.AddTransient<IRoleRepository, RoleRepository>();
+
+
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
