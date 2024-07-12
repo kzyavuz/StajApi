@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StajApi", "StajApi\StajApi.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StajDepper", "StajDepper\StajDepper.csproj", "{4F967BFE-D713-454A-968C-35E26E290293}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{DCCECA8E-7AE4-4231-BB56-C5F46D889871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{6B772C60-1CF8-40C7-9A20-D7FCF91B76DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,22 @@ Global
 		{4F967BFE-D713-454A-968C-35E26E290293}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4F967BFE-D713-454A-968C-35E26E290293}.Release|x64.ActiveCfg = Release|Any CPU
 		{4F967BFE-D713-454A-968C-35E26E290293}.Release|x64.Build.0 = Release|Any CPU
+		{DCCECA8E-7AE4-4231-BB56-C5F46D889871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCCECA8E-7AE4-4231-BB56-C5F46D889871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCCECA8E-7AE4-4231-BB56-C5F46D889871}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DCCECA8E-7AE4-4231-BB56-C5F46D889871}.Debug|x64.Build.0 = Debug|Any CPU
+		{DCCECA8E-7AE4-4231-BB56-C5F46D889871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCCECA8E-7AE4-4231-BB56-C5F46D889871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCCECA8E-7AE4-4231-BB56-C5F46D889871}.Release|x64.ActiveCfg = Release|Any CPU
+		{DCCECA8E-7AE4-4231-BB56-C5F46D889871}.Release|x64.Build.0 = Release|Any CPU
+		{6B772C60-1CF8-40C7-9A20-D7FCF91B76DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B772C60-1CF8-40C7-9A20-D7FCF91B76DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B772C60-1CF8-40C7-9A20-D7FCF91B76DD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6B772C60-1CF8-40C7-9A20-D7FCF91B76DD}.Debug|x64.Build.0 = Debug|Any CPU
+		{6B772C60-1CF8-40C7-9A20-D7FCF91B76DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B772C60-1CF8-40C7-9A20-D7FCF91B76DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B772C60-1CF8-40C7-9A20-D7FCF91B76DD}.Release|x64.ActiveCfg = Release|Any CPU
+		{6B772C60-1CF8-40C7-9A20-D7FCF91B76DD}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

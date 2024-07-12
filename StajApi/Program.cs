@@ -1,9 +1,6 @@
-using StajApi.Models.DepperContext;
-using StajApi.Models.Repositories.DealerRepository;
-using StajApi.Models.Repositories.Employee;
-using StajApi.Models.Repositories.RoleRepository;
-using StajApi.Models.Repositories.UserRoleRepository;
-using StajApi.Models.Repositories.WorkRepository;
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DTO.DepperContext;
 
 var builder = WebApplication.CreateBuilder(args);
 

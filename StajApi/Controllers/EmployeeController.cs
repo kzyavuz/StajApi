@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BusinessLayer.Abstract;
+using DTO.DTOs.EmployeeDTO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StajApi.DTOs.EMployeeDTO;
-using StajApi.Models.Repositories.Employee;
 
 namespace StajApi.Controllers
 {

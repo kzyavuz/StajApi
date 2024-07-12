@@ -1,10 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BusinessLayer.Abstract;
+using DTO.DTOs.RolesDTO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StajApi.DTOs.EMployeeDTO;
-using StajApi.DTOs.RolesDTO;
-using StajApi.Models.Repositories.RoleRepository;
-using StajApi.Models.Repositories.UserRoleRepository;
-
 namespace StajApi.Controllers
 {
     [Route("api/[controller]")]

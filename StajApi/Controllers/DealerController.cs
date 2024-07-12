@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BusinessLayer.Abstract;
+using DTO.DTOs.DealerDTO;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using StajApi.DTOs.DealerDTO;
-using StajApi.Models.Repositories.DealerRepository;
 
 namespace StajApi.Controllers
 {
