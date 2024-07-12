@@ -2,18 +2,27 @@
 using BusinessLayer.Abstract;
 using DTO.DepperContext;
 using DTO.DTOs.EmployeeDTO;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BusinessLayer.Concrete
 {
     public class EmployeeRepository : IEmployeeRepository
     {
+        private readonly IConfiguration _configuration;
         private readonly Context _context;
 
-        public EmployeeRepository(Context context)
+        public EmployeeRepository(IConfiguration configuration, Context context)
         {
+            _configuration = configuration;
             _context = context;
         }
-        public async void CreateEmployee(CreateEmployeeDto createEmployeeDto)
+
+        public async void SignUp(CreateEmployeeDto createEmployeeDto)
         {
             var passwordHash = BCrypt.Net.BCrypt.HashPassword(createEmployeeDto.Password);
             string query = "insert into Employee (EmployeeName, EmployeeSurName, Status, Email, Password) values (@employeeName, @employeeSurName,@status, @email, @password)";
@@ -21,7 +30,7 @@ namespace BusinessLayer.Concrete
             parameters.Add("@employeeName", createEmployeeDto.EmployeeName);
             parameters.Add("@employeeSurName", createEmployeeDto.EmployeeSurName);
             parameters.Add("@email", createEmployeeDto.Email);
-            parameters.Add("@password", createEmployeeDto.Password);
+            parameters.Add("@password", passwordHash);
             parameters.Add("@status", true);
             using (var connection = _context.CreateConnection())
             {
@@ -66,6 +75,46 @@ namespace BusinessLayer.Concrete
             {
                 await connection.ExecuteAsync(query, parameters);
             }
+        }
+
+          public async Task<IActionResult> SignIn(LoginDto loginDto)
+        {
+            var sql = "SELECT * FROM Employee WHERE UserName = @userName";
+
+            var parameters = new DynamicParameters();
+            parameters.Add("@userName", loginDto.UserName);
+
+            using (var connection = _context.CreateConnection())
+            {
+                var user = await connection.QueryFirstOrDefaultAsync<ResultEmployeeDto>(sql, parameters);
+
+                if (user != null && BCrypt.Net.BCrypt.Verify(loginDto.Password, user.Password))
+                {
+                    var token = GenerateJwtToken(user);
+                    return new OkObjectResult(new { token });
+                }
+
+                return new UnauthorizedResult();
+            }
+        }
+        private string GenerateJwtToken(ResultEmployeeDto user)
+        {
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new[]
+                {
+                    new Claim(ClaimTypes.NameIdentifier, user.EmployeeID.ToString()),
+                    new Claim(ClaimTypes.Name, user.EmployeeName),
+                    new Claim(ClaimTypes.Email, user.Email)
+                }),
+                Expires = DateTime.UtcNow.AddHours(0.5),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
+
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            return tokenHandler.WriteToken(token);
         }
     }
 }

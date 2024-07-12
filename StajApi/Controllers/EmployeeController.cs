@@ -23,11 +23,18 @@ namespace StajApi.Controllers
             return Ok(values);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateEmployee(CreateEmployeeDto createEmployeeDto)
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(CreateEmployeeDto createEmployeeDto)
         {
-            _employeeRepository.CreateEmployee(createEmployeeDto);
-            return Ok("Basrılı bir sekilde personel ekleme işlemi gerçkelstirildi.");
+            _employeeRepository.SignUp(createEmployeeDto);
+            return Ok(" Kayıt işlemi başrılı bir şekilde gerçkelştirildi.");
+        }
+
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(LoginDto loginDto)
+        {
+            _employeeRepository.SignIn(loginDto);
+            return Ok(" Giriş işlemi başrılı bir şekilde gerçkelştirildi.");
         }
 
         [HttpDelete]
