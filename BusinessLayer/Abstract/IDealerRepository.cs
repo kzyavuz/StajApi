@@ -1,5 +1,4 @@
-﻿
-using DTO.DTOs.DealerDTO;
+﻿using DTO.DTOs.DealerDTO;
 
 namespace BusinessLayer.Abstract
 

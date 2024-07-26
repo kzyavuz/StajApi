@@ -9,5 +9,7 @@
         public string Email { get; set; }
         public string Password { get; set; }
         public bool Status { get; set; }
+        public DateTime CreateDateTime { get; set; }
+        public DateTime UpdateDateTime { get; set; }
     }
 }

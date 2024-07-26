@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StajApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class DealerController : ControllerBase
     {
@@ -23,21 +23,21 @@ namespace StajApi.Controllers
             return Ok(values);
         }
 
+        //[HttpPost]
+        //public async Task<IActionResult> CreateDealer(CreateDealerDto createDealerDto)
+        //{
+        //    _dealerRepository.CreateDealer(createDealerDto);
+        //    return Ok("Basrılı bir sekilde ekleme işlemi gerçkelstirildi");
+        //}
+
+        //[HttpPost]
+        //public async Task<IActionResult> Delete(int id)
+        //{
+        //    _dealerRepository.DeleteDealer(id); 
+        //    return Ok("Bayi basarılı bir şekilde silindi");
+        //}
+
         [HttpPost]
-        public async Task<IActionResult> CreateDealer(CreateDealerDto createDealerDto)
-        {
-            _dealerRepository.CreateDealer(createDealerDto);
-            return Ok("Basrılı bir sekilde ekleme işlemi gerçkelstirildi");
-        }
-
-        [HttpDelete]
-        public async Task<IActionResult> DeleteDealer(int id)
-        {
-            _dealerRepository.DeleteDealer(id);
-            return Ok("Bayi basarılı bir şekilde silindi");
-        }
-
-        [HttpPut]
         public async Task<IActionResult> UpdateDealer(UpdateDealerDto updateDealerDto)
         {
             _dealerRepository.UpdateDealer(updateDealerDto);

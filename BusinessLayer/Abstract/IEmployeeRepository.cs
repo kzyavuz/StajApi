@@ -6,9 +6,14 @@ namespace BusinessLayer.Abstract
     public interface IEmployeeRepository
     {
         Task<List<ResultEmployeeDto>> GetAllEmployeeAsync();
-        void SignUp(CreateEmployeeDto createEmployeeDto);
+        Task<List<ResultEmployeeDto>> GetUpdateEmployeeAsync();
+        Task<List<ResultEmployeeDto>> GetActiveEmployeeAsync();
+        Task<List<ResultEmployeeDto>> GetPassiveEmployeeAsync();
+
         Task<IActionResult> SignIn(LoginDto loginDto);
-        void DeleteEmployee(int id);
-        void UpdateEmployee(UpdateEmployeeDto updateEmployeeDto);
+
+        public Task<bool> SignUp(CreateEmployeeDto createEmployeeDto);
+        public Task<bool> DeleteEmployee(DeleteEmployeeDto deleteEmployeeDto);
+        public Task<bool> UpdateEmployee(UpdateEmployeeDto updateEmployeeDto);
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 namespace StajApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class RoleController : ControllerBase
     {
@@ -17,14 +17,14 @@ namespace StajApi.Controllers
             _roleRepository = roleRepository;
         }
 
-        [HttpGet("UserRoleList")]
+        [HttpGet]
         public async Task<IActionResult> UserRoleList()
         {
             var values = await _userRoleRepository.GetAllUserRoleAsync();
             return Ok(values);
         }
 
-        [HttpGet("RoleList")]
+        [HttpGet]
         public async Task<IActionResult> RoleList()
         {
             var values = await _roleRepository.GetAllRoleAsync();
@@ -38,14 +38,14 @@ namespace StajApi.Controllers
             return Ok("Basrılı bir sekilde Rol ekleme işlemi gerçkelstirildi.");
         }
 
-        [HttpDelete]
+        [HttpPost]
         public async Task<IActionResult> DeleteRole(int id)
         {
             _roleRepository.DeleteRole(id);
             return Ok("Rol basarılı bir şekilde silindi");
         }
 
-        [HttpPut]
+        [HttpPost]
         public async Task<IActionResult> UpdateRole(UpdateRoleDto updateRoleDto)
         {
             _roleRepository.UpdateRole(updateRoleDto);
