@@ -72,6 +72,18 @@ namespace BusinessLayer.Concrete
             }
         }
 
+        public async Task<ResultWorkDto> GetDetailsWorkAsync(int id)
+        {
+            string query = "Select * from Work where WorkID = @workID";
+            var parameters = new DynamicParameters();
+            parameters.Add("@workID", id);
+            using (var connection = _context.CreateConnection())
+            {
+                var values = await connection.QueryFirstOrDefaultAsync<ResultWorkDto>(query, parameters);
+                return values;
+            }
+        }
+
         public async Task<List<ResultWorkDto>> GetActiveWorkAsync()
         {
             string query = "Select * from Work where Status = 1 order by ActiveDateTime desc";

@@ -9,6 +9,7 @@ namespace BusinessLayer.Abstract
         Task<List<ResultWorkDto>> GetAllWorkAsync();
         Task<List<ResultWorkDto>> GetActiveWorkAsync();
         Task<List<ResultWorkDto>> GetPassiveWorkAsync();
+        Task<ResultWorkDto> GetDetailsWorkAsync(int id);
 
         public Task<bool> AddWorkAsync(CreateWorkDto createWorkDto);
         public Task<bool> UpdateWorkAsync(UpdateWorkDto updateWorkDto);

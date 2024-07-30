@@ -1,13 +1,10 @@
 ﻿using BusinessLayer.Abstract;
-using BusinessLayer.Concrete;
-using DTO.DTOs.AccountDTO;
 using DTO.DTOs.EmployeeDTO;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace StajApi.Controllers
 {
-    [Route("api/[controller]/[action]/")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class EmployeeController : ControllerBase
     {
@@ -46,6 +43,13 @@ namespace StajApi.Controllers
             return Ok(values);
         }
 
+        [HttpPost("{id}")]
+        public IActionResult EmployeeDetailsList(int id)
+        {
+            var values = _employeeRepository.GetDetailsEmployee(id);
+            return Ok(values);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Register(CreateEmployeeDto createEmployeeDto)
         {
@@ -53,19 +57,17 @@ namespace StajApi.Controllers
 
             if (result)
             {
-                return Ok(new { Message = "Kullanıcı başarıyla kaydedildi." });
+                return Ok(new { message = "Employee created successfully" });
             }
-            else
-            {
-                return StatusCode(500, new { Message = "Bir hata oluştu." });
-            }
+
+            return StatusCode(500, new { message = "Error creating employee" });
         }
 
         [HttpPost]
         public async Task<IActionResult> Login(LoginDto loginDto)
         {
-            await _employeeRepository.SignIn(loginDto);
-            return Ok(" Giriş işlemi başrılı bir şekilde gerçkelştirildi.");
+            var result = await _employeeRepository.SignIn(loginDto);
+            return result;
         }
 
         [HttpPost]

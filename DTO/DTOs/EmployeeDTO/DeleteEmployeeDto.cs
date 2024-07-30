@@ -9,5 +9,6 @@ namespace DTO.DTOs.EmployeeDTO
     public class DeleteEmployeeDto
     {
         public int EmployeeID { get; set; }
+        public DateTime PassiveDateTime { get; set; }
     }
 }

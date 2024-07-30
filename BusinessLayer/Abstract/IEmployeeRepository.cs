@@ -9,6 +9,7 @@ namespace BusinessLayer.Abstract
         Task<List<ResultEmployeeDto>> GetUpdateEmployeeAsync();
         Task<List<ResultEmployeeDto>> GetActiveEmployeeAsync();
         Task<List<ResultEmployeeDto>> GetPassiveEmployeeAsync();
+        ResultEmployeeDto GetDetailsEmployee(int id);
 
         Task<IActionResult> SignIn(LoginDto loginDto);
 

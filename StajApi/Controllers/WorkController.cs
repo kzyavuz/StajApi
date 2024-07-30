@@ -37,7 +37,12 @@ namespace StajApi.Controllers
             return Ok(result);
         }
 
-
+        [HttpPost("{id}")]
+        public async Task<IActionResult> WorkDetails(int id)
+        {
+            var values = await _workRepository.GetDetailsWorkAsync(id);
+            return Ok(values);
+        }
         [HttpPost]
         public async Task<IActionResult> CreateWork(CreateWorkDto createWorkDto)
         {
