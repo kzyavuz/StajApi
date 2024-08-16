@@ -37,12 +37,12 @@ namespace StajApi.Controllers
         //    return Ok("Bayi basarılı bir şekilde silindi");
         //}
 
-        [HttpPost]
-        public async Task<IActionResult> UpdateDealer(UpdateDealerDto updateDealerDto)
-        {
-            _dealerRepository.UpdateDealer(updateDealerDto);
-            return Ok("Bayi başarılı bir şekilde güncellendi");
-        }
+        //[HttpPost]
+        //public async Task<IActionResult> UpdateDealer(UpdateDealerDto updateDealerDto)
+        //{
+        //    _dealerRepository.UpdateDealer(updateDealerDto);
+        //    return Ok("Bayi başarılı bir şekilde güncellendi");
+        //}
 
     }
 }

@@ -8,20 +8,11 @@ namespace StajApi.Controllers
     [ApiController]
     public class RoleController : ControllerBase
     {
-        private readonly IUserRoleRepository _userRoleRepository;
         private readonly IRoleRepository _roleRepository;
 
-        public RoleController(IUserRoleRepository userRoleRepository, IRoleRepository roleRepository)
+        public RoleController(IRoleRepository roleRepository)
         {
-            _userRoleRepository = userRoleRepository;
             _roleRepository = roleRepository;
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> UserRoleList()
-        {
-            var values = await _userRoleRepository.GetAllUserRoleAsync();
-            return Ok(values);
         }
 
         [HttpGet]
@@ -34,21 +25,21 @@ namespace StajApi.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateRole(CreateRoleDto createRoleDto)
         {
-            _roleRepository.CreateRole(createRoleDto);
+            await _roleRepository.CreateRoleAsync(createRoleDto);
             return Ok("Basrılı bir sekilde Rol ekleme işlemi gerçkelstirildi.");
         }
 
         [HttpPost]
         public async Task<IActionResult> DeleteRole(int id)
         {
-            _roleRepository.DeleteRole(id);
+            await _roleRepository.DeleteRoleAsync(id);
             return Ok("Rol basarılı bir şekilde silindi");
         }
 
         [HttpPost]
         public async Task<IActionResult> UpdateRole(UpdateRoleDto updateRoleDto)
         {
-            _roleRepository.UpdateRole(updateRoleDto);
+            await _roleRepository.UpdateRoleAsync(updateRoleDto);
             return Ok("Rol başarılı bir şekilde güncellendi");
         }
     }

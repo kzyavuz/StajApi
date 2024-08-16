@@ -1,5 +1,6 @@
 ﻿
 
+using DTO.DTOs.EmployeeDTO;
 using DTO.DTOs.WorkDTO;
 
 namespace BusinessLayer.Abstract
@@ -9,11 +10,15 @@ namespace BusinessLayer.Abstract
         Task<List<ResultWorkDto>> GetAllWorkAsync();
         Task<List<ResultWorkDto>> GetActiveWorkAsync();
         Task<List<ResultWorkDto>> GetPassiveWorkAsync();
+        Task<List<ResultWorkDto>> GetDeleteWorkAsync();
         Task<ResultWorkDto> GetDetailsWorkAsync(int id);
 
         public Task<bool> AddWorkAsync(CreateWorkDto createWorkDto);
         public Task<bool> UpdateWorkAsync(UpdateWorkDto updateWorkDto);
         public Task<bool> DeleteWorkAsync(DeleteWorkDto deleteWorkDto);
+
+        public Task<bool> ConvertStatusPassive(ConverStatusWorkDto converStatusWorkDto);
+        public Task<bool> ConvertStatusActive(ConverStatusWorkDto converStatusWorkDto);
 
     }
 }

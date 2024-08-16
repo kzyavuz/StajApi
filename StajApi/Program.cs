@@ -11,13 +11,13 @@ builder.Services.AddControllers();
 // Add services to the container.   
 builder.Services.AddTransient<Context>();
 
+builder.Services.AddTransient<IAcountRepository, AcountRepository>();
+
 builder.Services.AddTransient<IDealerRepository, DealerRepository>();
 
 builder.Services.AddTransient<IWorkRepository, WorkRepository>();
 
 builder.Services.AddTransient<IEmployeeRepository, EmployeeRepository>();
-
-builder.Services.AddTransient<IUserRoleRepository, UserRoleRepository>();
 
 builder.Services.AddTransient<IRoleRepository, RoleRepository>();
 
@@ -27,9 +27,7 @@ builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-
-.AddJwtBearer(options =>
+}).AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
     {
@@ -43,11 +41,11 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-//builder.Services.AddCors(options =>
-//{
-//    options.AddDefaultPolicy(policy => policy.AllowAnyHeader().AllowAnyMethod().SetIsOriginAllowed(o => true).AllowCredentials());
-//});
-
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("PERSONEL", policy => policy.RequireRole("PERSONEL"));
+    options.AddPolicy("YONETICI", policy => policy.RequireRole("YONETICI"));
+});
 
 builder.Services.AddCors(options =>
 {
@@ -73,11 +71,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors("AllowAllOrigins"); 
+app.UseCors("AllowAllOrigins");
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
-
 app.UseAuthorization();
 
 app.MapControllers();

@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace DTO.DTOs.EmployeeDTO
 {
-    public class DeleteEmployeeDto
+    public class ConvertEmployeeStatusDto
     {
         public int EmployeeID { get; set; }
-        public DateTime DeleteDateTime { get; set; }
+        public bool Status2 { get; set; }
+        public DateTime ActiveDateTime { get; set; }
+        public DateTime PassiveDateTime { get; set; }
     }
 }
