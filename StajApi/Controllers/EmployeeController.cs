@@ -49,25 +49,25 @@ namespace StajApi.Controllers
             return Ok(values);
         }
 
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> EmployeePassiveList()
         {
             var values = await _employeeRepository.GetPassiveEmployeeAsync();
             return Ok(values);
         }
 
-        [HttpPost("{id}")]
-        public IActionResult EmployeeDetailsList(int id)
+        [HttpPost]
+        public IActionResult EmployeeDetailsList(EmployeeIDDto employeeIDDto)
         {
-            var values = _employeeRepository.GetDetailsEmployee(id);
+            var values = _employeeRepository.GetDetailsEmployee(employeeIDDto);
             return Ok(values);
         }
 
 
-        [HttpPost("{id}")]
-        public async Task<IActionResult> EmployeeWorksList(int id)
+        [HttpPost]
+        public async Task<IActionResult> EmployeeWorksList(EmployeeIDDto employeeIDDto)
         {
-            var values = await _employeeRepository.GetWorkEmployee(id);
+            var values = await _employeeRepository.GetWorkEmployee(employeeIDDto);
             return Ok(values);
         }
 

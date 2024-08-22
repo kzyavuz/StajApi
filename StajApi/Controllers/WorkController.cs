@@ -45,10 +45,10 @@ namespace StajApi.Controllers
             return Ok(result);
         }
 
-        [HttpPost("{id}")]
-        public async Task<IActionResult> WorkDetails(int id)
+        [HttpPost]
+        public async Task<IActionResult> WorkDetails(WorkIDDto workIDDto)
         {
-            var values = await _workRepository.GetDetailsWorkAsync(id);
+            var values = await _workRepository.GetDetailsWorkAsync(workIDDto);
             return Ok(values);
         }
 
@@ -93,9 +93,9 @@ namespace StajApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> DeleteWork(DeleteWorkDto deleteWorkDto)
+        public async Task<IActionResult> DeleteWork(WorkIDDto workIDDto)
         {
-            var result = await _workRepository.DeleteWorkAsync(deleteWorkDto);
+            var result = await _workRepository.DeleteWorkAsync(workIDDto);
             if (result)
             {
                 return Ok(new { Message = "Kullanıcı başarılı bir şekilde silindi." });

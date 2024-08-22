@@ -93,11 +93,11 @@ namespace BusinessLayer.Concrete
             return await CreateConnection(query, paremeters);
         }
 
-        public async Task<bool> DeleteWorkAsync(DeleteWorkDto id)
+        public async Task<bool> DeleteWorkAsync(WorkIDDto workIDDto)
         {
             string query = "update Work set Status = 0, Status2 = 0, DeleteDateTime = @deleteDateTime where WorkID = @workID";
             var parameters = new DynamicParameters();
-            parameters.Add("@workID", id.WorkID);
+            parameters.Add("@workID", workIDDto.WorkID);
             parameters.Add("@deleteDateTime", DateTime.Now);
 
             return await CreateConnection(query, parameters);
@@ -114,11 +114,11 @@ namespace BusinessLayer.Concrete
         }
 
 
-        public async Task<ResultWorkDto> GetDetailsWorkAsync(int id)
+        public async Task<ResultWorkDto> GetDetailsWorkAsync(WorkIDDto workIDDto)
         {
             string query = "Select * from Work where WorkID = @workID";
             var parameters = new DynamicParameters();
-            parameters.Add("@workID", id);
+            parameters.Add("@workID", workIDDto.WorkID);
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryFirstOrDefaultAsync<ResultWorkDto>(query, parameters);

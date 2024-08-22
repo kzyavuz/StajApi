@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DTO.DTOs.WorkDTO
+namespace DTO.DTOs.EmployeeDTO
 {
-    public class DeleteWorkDto
+    public class EmployeeIDDto
     {
-        public int WorkID { get; set; }
+        public int EmployeeID { get; set; }
     }
 }

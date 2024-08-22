@@ -11,8 +11,8 @@ namespace BusinessLayer.Abstract
         Task<List<ResultEmployeeDto>> GetActiveEmployeeAsync();
         Task<List<ResultEmployeeDto>> GetPassiveEmployeeAsync();
         Task<List<ResultEmployeeDto>> GetDeleteEmployeeAsync();
-        ResultEmployeeDto GetDetailsEmployee(int id);
-        Task<List<ResultWorkDto>> GetWorkEmployee(int id);
+        ResultEmployeeDto GetDetailsEmployee(EmployeeIDDto employeeIDDto);
+        Task<List<ResultWorkDto>> GetWorkEmployee(EmployeeIDDto employeeIDDto);
 
         public Task<bool> ConvertStatusPassive(ConvertEmployeeStatusDto convertEmployeeStatusDto);
         public Task<bool> ConvertStatusActive(ConvertEmployeeStatusDto convertEmployeeStatusDto);

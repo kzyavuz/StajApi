@@ -149,11 +149,11 @@ namespace BusinessLayer.Concrete
         }
 
 
-        public ResultEmployeeDto GetDetailsEmployee(int id)
+        public ResultEmployeeDto GetDetailsEmployee(EmployeeIDDto employeeIDDto)
         {
             string query = "Select * From Employee where EmployeeID = @employeeID";
             var parameters = new DynamicParameters();
-            parameters.Add("employeeID", id);
+            parameters.Add("employeeID", employeeIDDto.EmployeeID);
             using (var connection = _context.CreateConnection())
             {
                 var values = connection.QueryFirstOrDefault<ResultEmployeeDto>(query, parameters);
@@ -161,11 +161,11 @@ namespace BusinessLayer.Concrete
             }
         }
 
-        public async Task<List<ResultWorkDto>> GetWorkEmployee(int id)
+        public async Task<List<ResultWorkDto>> GetWorkEmployee(EmployeeIDDto employeeIDDto)
         {
             string query = "Select * From Work where EmployeeID = @employeeID";
             var parameters = new DynamicParameters();
-            parameters.Add("employeeID", id);
+            parameters.Add("employeeID", employeeIDDto.EmployeeID);
             using (var connection = _context.CreateConnection())
             {
                 var values = await connection.QueryAsync<ResultWorkDto>(query, parameters);

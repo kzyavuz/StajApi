@@ -11,11 +11,11 @@ namespace BusinessLayer.Abstract
         Task<List<ResultWorkDto>> GetActiveWorkAsync();
         Task<List<ResultWorkDto>> GetPassiveWorkAsync();
         Task<List<ResultWorkDto>> GetDeleteWorkAsync();
-        Task<ResultWorkDto> GetDetailsWorkAsync(int id);
+        Task<ResultWorkDto> GetDetailsWorkAsync(WorkIDDto workIDDto);
 
         public Task<bool> AddWorkAsync(CreateWorkDto createWorkDto);
         public Task<bool> UpdateWorkAsync(UpdateWorkDto updateWorkDto);
-        public Task<bool> DeleteWorkAsync(DeleteWorkDto deleteWorkDto);
+        public Task<bool> DeleteWorkAsync(WorkIDDto workIDDto);
 
         public Task<bool> ConvertStatusPassive(ConverStatusWorkDto converStatusWorkDto);
         public Task<bool> ConvertStatusActive(ConverStatusWorkDto converStatusWorkDto);

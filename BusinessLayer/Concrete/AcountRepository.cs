@@ -40,7 +40,7 @@ namespace BusinessLayer.Concrete
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine(ex.Message);
+
                     return null;
                 }
             }
